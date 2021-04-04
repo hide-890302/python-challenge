@@ -51,3 +51,29 @@ print("Winner: " + winner)
 
 print("-------------------------")
 print("")
+
+# Output Results to text file
+
+# Create New Folder
+folder_path = os.path.join(dirname, "Analysis")
+os.mkdir(folder_path)
+
+# Create text file & output there
+file_path = folder_path = os.path.join(dirname, "Analysis", "election_results.txt")
+f = open(file_path, "w")
+
+f.write("Election Results\n")
+f.write("-------------------------\n")
+f.write(f"Total Votes: {str(total)}\n")
+f.write("-------------------------\n")
+
+for k, v in results.items():
+    percent = round(100*v/total, 3)
+    
+    f.write(f"{k}:{str(percent)}%, ({str(v)})\n")
+
+f.write("-------------------------\n")
+winner = max(results, key=results.get)
+f.write(f"Winner: {winner}\n")
+f.write("-------------------------\n")
+f.close

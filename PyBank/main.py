@@ -75,3 +75,22 @@ print(f"Greatest Increase in Profits: {max_delta_month} (${max_delta})")
 print(f"Greatest Decrease in Profits: {min_delta_month} (${min_delta})")
 print("----------------------------")
 print("")
+
+# Output Results to text file
+
+# Create New Folder
+folder_path = os.path.join(dirname, "Analysis")
+os.mkdir(folder_path)
+
+# Create text file & output there
+file_path = folder_path = os.path.join(dirname, "Analysis", "financial_analysis.txt")
+f = open(file_path, "w")
+f.write("Financial Analysis\n")
+f.write("----------------------------\n")
+f.write(f"Total Months: {total_months}\n")
+f.write(f"Total: ${total_profit}\n")
+f.write(f"Average Change: ${mean_profit_delta}\n")
+f.write(f"Greatest Increase in Profits: {max_delta_month} (${max_delta})\n")
+f.write(f"Greatest Decrease in Profits: {min_delta_month} (${min_delta})\n")
+f.write("----------------------------\n")
+f.close
